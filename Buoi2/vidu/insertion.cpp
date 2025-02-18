@@ -1,0 +1,34 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Hàm Insertion Sort
+void insertion_sort(vector<int>& arr) {
+    int n = arr.size();
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];  // Lưu giá trị hiện tại
+        int j = i - 1;
+
+        // Di chuyển các phần tử lớn hơn key lên một vị trí
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+
+        // Chèn key vào vị trí đúng
+        arr[j + 1] = key;
+    }
+}
+
+int main() {
+    vector<int> arr = {5, 2, 9, 1, 5};  // Khởi tạo mảng
+    insertion_sort(arr);  // Gọi hàm sắp xếp
+
+    cout << "Kết quả sau Insertion Sort: ";
+    for (int x : arr) {
+        cout << x << " ";  // In kết quả
+    }
+    cout << endl;
+
+    return 0;
+}
